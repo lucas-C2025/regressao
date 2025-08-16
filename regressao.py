@@ -21,11 +21,14 @@ proxima_previsao = modelo.predict(proximo_x)
 print(f"Próximo valor previsto para Mes={proximo_x[0][0]} é Emprestimos_Renegociados={proxima_previsao[0]:.2f}")
 
 # 5. Visualizar os dados e a reta de regressão
+plt.figure(figsize=(8,6))
 plt.scatter(X, y, color="blue", label="Dados reais")
 plt.plot(X, modelo.predict(X), color="red", label="Reta de regressão")
 plt.scatter(proximo_x, proxima_previsao, color="green", marker="x", s=100, label="Próxima previsão")
 
 plt.xlabel("Mes")
 plt.ylabel("Emprestimos_Renegociados")
+plt.title("Regressão Linear - Previsão de Empréstimos Renegociados")
 plt.legend()
+plt.grid(True, linestyle="--", alpha=0.7)  # grade mais discreta
 plt.show()
